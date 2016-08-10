@@ -5,28 +5,29 @@ public class PrimeFactors {
     static ArrayList<Integer> primes = new ArrayList<Integer>();
 
     public static void main(String[] args) {
-        generate(14);
+        generate(75);
     }
 
     public static void generate(int number) {
 
         for (int i = 2; i < number; i++) {
-            //get all divisible
-            if (number % i == 0) {
-                boolean isPrime = true;
-
-                //check if prime
-                for (int l = 2; l < i; l++) {
-                    if (i % l == 0) {
-                        isPrime = false;
-                    }
-                }
-
-                if (isPrime) {
-                    primes.add(i);
-                }
-            }
+            getDivisibleNumbers(number, i);
         }
         System.out.println(primes);
+    }
+
+    public static void getDivisibleNumbers(int number, int iterator) {
+        if (number % iterator == 0) {
+            if (isNumberPrime(iterator)) primes.add(iterator);
+        }
+    }
+
+    public static boolean isNumberPrime(int iterator) {
+        for (int l = 2; l < iterator; l++) {
+            if (iterator % l == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
