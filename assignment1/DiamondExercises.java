@@ -9,15 +9,12 @@ public class DiamondExercises {
     public static void generateDiamondLine(int spaceNumber, int asteriskNumber) {
         int i = 0;
 
-        while (i < (spaceNumber/2)) {
+        for (var i = 0; i < (spaceNumber/2); i++) {
             System.out.print(" ");
-            i++;
         }
 
-        i = 0;
-        while(i < asteriskNumber) {
+        for (var i = 0; i < asteriskNumber; i++) {
             System.out.print("*");
-            i++;
         }
 
         System.out.println("");
